@@ -1,3 +1,20 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+* {
+	box-sizing: border-box;
+
+	padding: 0;
+	margin: 0;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+ul,
+ol {
+	padding-left: 1.7rem;
+}

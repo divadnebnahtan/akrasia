@@ -1,2 +1,38 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+    import * as config from '$lib/config';
+
+    import Orb from '$lib/components/Orb.svelte';
+    import { Canvas } from '@threlte/core';
+    import * as THREE from 'three';
+</script>
+
+<svelte:head>
+    <title>{config.siteName}</title>
+    <meta name="description" content={config.siteDescription} />
+    
+    <meta property="og:locale" content="en_AU" />
+
+    <meta name="og:type" content="website" />
+	<meta name="og:site_name" content={config.siteName} />
+
+	<meta name="og:title" content={config.siteName} />
+	<meta name="og:description" content={config.siteDescription} />
+	<meta name="og:url" content={config.siteUrl} />
+</svelte:head>
+
+<div id="orb-container" class="w-full h-full fixed top-0 left-0 overflow-hidden bg-[url('/wizard.png')] bg-center bg-cover">
+    <Canvas toneMapping={THREE.NoToneMapping}>
+        <Orb />
+    </Canvas>
+</div>
+
+<style>
+    #orb-container {
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+</style>

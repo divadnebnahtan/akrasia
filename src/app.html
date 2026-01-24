@@ -3,6 +3,39 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="icon" href="/favicon.ico" />
+		<!-- <link rel="manifest" href="/manifest.json" /> -->
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+		<script>
+			const html = document.documentElement;
+			const userTheme = localStorage.theme;
+			// const userFont = localStorage.font;
+			// const userPostFontSize = localStorage.textSize;
+			// const userPostTextLength = localStorage.textLength;
+			// const userPostTextHeight = localStorage.textHeight;
+
+			const prefersDarkMode = window.matchMedia('prefers-color-scheme: dark').matches;
+			const prefersLightMode = window.matchMedia('prefers-color-scheme: light').matches;
+
+			if (userTheme) {
+				html.dataset.theme = userTheme;
+			} else {
+				if (prefersDarkMode) {
+					html.dataset.theme = 'dark';
+				} else if (prefersLightMode) {
+					html.dataset.theme = 'light';
+				} else {
+					html.dataset.theme = 'light';
+				}
+				localStorage.theme = html.dataset.theme;
+			}
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
