@@ -1,7 +1,8 @@
 <script lang="ts">
     import * as config from '$lib/config';
-
     import Orb from '$lib/components/Orb.svelte';
+    import Wizard from '$lib/components/Wizard.svelte';
+
     import { Canvas } from '@threlte/core';
     import * as THREE from 'three';
 </script>
@@ -20,14 +21,15 @@
 	<meta name="og:url" content={config.siteUrl} />
 </svelte:head>
 
-<div id="orb-container" class="w-full h-full fixed top-0 left-0 overflow-hidden bg-[url('/wizard.png')] bg-center bg-cover">
+<div id="container" class="w-full h-full fixed top-0 left-0 overflow-hidden">
+    <Wizard />
     <Canvas toneMapping={THREE.NoToneMapping}>
         <Orb />
     </Canvas>
 </div>
 
 <style>
-    #orb-container {
+    #container {
         -webkit-touch-callout: none;
         -webkit-tap-highlight-color: transparent;
         -moz-user-select: -moz-none;
