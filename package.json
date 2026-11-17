@@ -27,6 +27,7 @@
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
 		"globals": "^16.5.0",
+		"mdsvex": "^0.12.6",
 		"prettier": "^3.7.4",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
@@ -38,6 +39,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"@markdoc/markdoc": "^0.5.4",
 		"@threlte/core": "^8.3.1",
 		"@threlte/extras": "^9.7.1",
 		"@types/three": "^0.182.0",

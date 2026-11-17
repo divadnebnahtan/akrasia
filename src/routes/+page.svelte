@@ -1,10 +1,12 @@
 <script lang="ts">
     import * as config from '$lib/config';
-    import Orb from '$lib/components/Orb.svelte';
-    import Wizard from '$lib/components/Wizard.svelte';
+    // import Orb from '$lib/components/Orb.svelte';
+    // import Wizard from '$lib/components/Wizard.svelte';
 
-    import { Canvas } from '@threlte/core';
-    import * as THREE from 'three';
+    // import { Canvas } from '@threlte/core';
+    // import * as THREE from 'three';
+
+    export let data;
 </script>
 
 <svelte:head>
@@ -22,10 +24,20 @@
 </svelte:head>
 
 <div id="container" class="w-full h-full fixed top-0 left-0 overflow-hidden">
-    <Wizard />
+    <!-- <Wizard />
     <Canvas toneMapping={THREE.NoToneMapping}>
         <Orb />
-    </Canvas>
+    </Canvas> -->
+
+<ul>
+	{#each data.posts as post}
+		<li>
+			<a href={`/blog/${post.slug}`}>
+				{post.slug.replaceAll('-', ' ')}
+			</a>
+		</li>
+	{/each}
+</ul>
 </div>
 
 <style>

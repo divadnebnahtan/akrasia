@@ -12,19 +12,19 @@
         const updateEyePosition = (clientX: number, clientY: number) => {
             if (!eyesElement) return;
 
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
+            const centerX = window.innerWidth * 0.5;
+            const centerY = window.innerHeight * 0.25;
 
             const deltaX = clientX - centerX;
             const deltaY = clientY - centerY;
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            const distanceMapped = (distance / Math.sqrt((centerX * centerX) + (centerY * centerY))) * EYEBALL_RADIUS;
+            const distanceMapped = Math.min(1, distance / Math.sqrt((centerX * centerX) + (centerY * centerY)))
 
             const angle = Math.atan2(deltaY, deltaX);
-            eyeOffsetX = Math.cos(angle) * distanceMapped;
-            eyeOffsetY = Math.sin(angle) * distanceMapped;
+            eyeOffsetX = Math.cos(angle) * distanceMapped * EYEBALL_RADIUS;
+            eyeOffsetY = Math.sin(angle) * distanceMapped * EYEBALL_RADIUS;
 
         };
 

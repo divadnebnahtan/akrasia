@@ -1,0 +1,19 @@
+<script>
+	import Counter from '$lib/widgets/Counter.svelte';
+</script>
+
+# Hello Counter
+
+This is a simple blog post written in **mdsvex**.
+
+Because mdsvex compiles to a Svelte component, we can embed
+interactive widgets directly inside the content.
+
+Here is a live counter:
+
+<Counter />
+
+Pretty neat, right?
+
+The page is prerendered, so this text appears instantly,
+and the counter hydrates afterward.
